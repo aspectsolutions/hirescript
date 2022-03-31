@@ -9,12 +9,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('FENICE_SECRET_KEY')
+# SECRET_KEY = os.environ.get('FENICE_SECRET_KEY')
+SECRET_KEY = ')f4!mo9zwe2!qa73*!&#7#_y0y6m%kzu*yh$^vosn6-8p64-8n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+# DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '165.227.179.114']
 
 
 # Application definition
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'django_cleanup.apps.CleanupConfig',
     'storages',
+    'pwa'
 ]
 
 MIDDLEWARE = [
@@ -95,10 +98,14 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'defaultdb',
-            'USER': 'doadmin',
-            'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-            'HOST': 'fenice-database-do-user-8082982-0.b.db.ondigitalocean.com',
-            'PORT': '25060',
+            # 'USER': 'doadmin',
+            'USER': 'feniceuser',
+            # 'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+            'PASSWORD': 'fenicepwd',
+            # 'HOST': 'fenice-database-do-user-8082982-0.b.db.ondigitalocean.com',
+            'HOST': 'localhost',
+            # 'PORT': '25060',
+            'PORT': 5432,
         }
     }
 
